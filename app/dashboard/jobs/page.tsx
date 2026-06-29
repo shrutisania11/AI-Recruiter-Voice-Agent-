@@ -1,6 +1,7 @@
 'use client';
 
 import * as React from 'react';
+import { toast } from 'sonner';
 import { DashboardHeader } from '@/components/dashboard/header';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -225,9 +226,13 @@ export default function JobsPage() {
         } else {
           setJobs(prev => [data, ...prev]);
         }
+        toast.success(`Job "${jobTitle}" saved successfully!`);
+      } else {
+        toast.error(data.error || 'Failed to save job position to database.');
       }
-    } catch (err) {
+    } catch (err: any) {
       console.error('Error saving job to database:', err);
+      toast.error(err.message || 'An error occurred while saving the job position.');
     }
     
     resetForm();
@@ -251,11 +256,16 @@ export default function JobsPage() {
       const res = await fetch(`/api/jobs?id=${id}`, {
         method: 'DELETE'
       });
+      const data = await res.json();
       if (res.ok) {
         setJobs(prev => prev.filter(j => j.id !== id));
+        toast.success('Job posting deleted successfully.');
+      } else {
+        toast.error(data.error || 'Failed to delete job posting.');
       }
-    } catch (err) {
+    } catch (err: any) {
       console.error('Error deleting job from database:', err);
+      toast.error(err.message || 'An error occurred while deleting the job posting.');
     }
   };
 
@@ -267,11 +277,16 @@ export default function JobsPage() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ id, status: nextStatus })
       });
+      const data = await res.json();
       if (res.ok) {
         setJobs(prev => prev.map(j => j.id === id ? { ...j, status: nextStatus } : j));
+        toast.success(`Job status updated to ${nextStatus}.`);
+      } else {
+        toast.error(data.error || 'Failed to update job status.');
       }
-    } catch (err) {
+    } catch (err: any) {
       console.error('Error changing job status:', err);
+      toast.error(err.message || 'An error occurred while updating the job status.');
     }
   };
 

@@ -4,83 +4,100 @@ import { sql } from 'drizzle-orm';
 const globalRef = global as any;
 
 export async function initializeDatabase(recruiterEmail: string) {
+  if (!globalRef.schemaInitialized) {
+    try {
+      // 1. Create users table if it does not exist
+      await db.execute(sql`
+        CREATE TABLE IF NOT EXISTS users (
+          id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+          clerk_id TEXT UNIQUE,
+          email TEXT NOT NULL UNIQUE,
+          name TEXT,
+          password TEXT,
+          role TEXT NOT NULL DEFAULT 'user',
+          plan TEXT NOT NULL DEFAULT 'free',
+          created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+          updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL
+        );
+      `);
+
+      // 2. Self-healing columns: Ensure users has the new columns if table existed but was old
+      await db.execute(sql`ALTER TABLE users ADD COLUMN IF NOT EXISTS plan TEXT DEFAULT 'free';`);
+      await db.execute(sql`ALTER TABLE users ADD COLUMN IF NOT EXISTS clerk_id TEXT UNIQUE;`);
+
+      // 3. Create other tables if they do not exist
+      await db.execute(sql`
+        CREATE TABLE IF NOT EXISTS jobs (
+          id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+          recruiter_id UUID,
+          title TEXT NOT NULL,
+          description TEXT NOT NULL,
+          skills TEXT NOT NULL,
+          location TEXT NOT NULL,
+          experience TEXT NOT NULL,
+          salary TEXT NOT NULL,
+          status TEXT NOT NULL DEFAULT 'Active',
+          created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+          updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL
+        );
+      `);
+
+      await db.execute(sql`
+        CREATE TABLE IF NOT EXISTS candidates (
+          id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+          recruiter_id UUID,
+          full_name TEXT NOT NULL,
+          email TEXT,
+          phone TEXT,
+          role TEXT,
+          score TEXT,
+          skills TEXT,
+          status TEXT NOT NULL DEFAULT 'new',
+          notes TEXT,
+          is_qualified BOOLEAN DEFAULT false,
+          created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+          updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL
+        );
+      `);
+
+      await db.execute(sql`
+        CREATE TABLE IF NOT EXISTS schedules (
+          id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+          candidate_id UUID,
+          job_id UUID,
+          recruiter_id UUID,
+          invited_at TEXT NOT NULL,
+          status TEXT NOT NULL DEFAULT 'Invited',
+          interview_type TEXT NOT NULL DEFAULT 'Screening',
+          score INTEGER,
+          duration TEXT,
+          interview_url TEXT NOT NULL,
+          created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+          updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL
+        );
+      `);
+
+      // 4. Self-healing columns: Ensure candidates table has the newer columns
+      try {
+        await db.execute(sql`ALTER TABLE candidates ADD COLUMN IF NOT EXISTS role TEXT;`);
+        await db.execute(sql`ALTER TABLE candidates ADD COLUMN IF NOT EXISTS score TEXT;`);
+        await db.execute(sql`ALTER TABLE candidates ADD COLUMN IF NOT EXISTS skills TEXT;`);
+      } catch (e) {
+        console.log('Columns might already exist in candidates table:', e);
+      }
+
+      globalRef.schemaInitialized = true;
+      console.log('Database schema verified/created successfully.');
+    } catch (e: any) {
+      console.error('Self-healing schema initialization failed:', e);
+    }
+  }
+
   if (globalRef.dbInitialized) {
     return;
   }
 
-  // Always run self-healing user plan and clerk_id column check first
   try {
-    await db.execute(sql`ALTER TABLE users ADD COLUMN IF NOT EXISTS plan TEXT DEFAULT 'free';`);
-    await db.execute(sql`ALTER TABLE users ADD COLUMN IF NOT EXISTS clerk_id TEXT UNIQUE;`);
-  } catch (e: any) {
-    console.error('Self-healing users column alter failed:', e);
-  }
-
-
-  try {
-    // 1. Create tables if they do not exist
-    await db.execute(sql`
-      CREATE TABLE IF NOT EXISTS jobs (
-        id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-        recruiter_id UUID,
-        title TEXT NOT NULL,
-        description TEXT NOT NULL,
-        skills TEXT NOT NULL,
-        location TEXT NOT NULL,
-        experience TEXT NOT NULL,
-        salary TEXT NOT NULL,
-        status TEXT NOT NULL DEFAULT 'Active',
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
-        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL
-      );
-    `);
-
-    await db.execute(sql`
-      CREATE TABLE IF NOT EXISTS candidates (
-        id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-        recruiter_id UUID,
-        full_name TEXT NOT NULL,
-        email TEXT,
-        phone TEXT,
-        role TEXT,
-        score TEXT,
-        skills TEXT,
-        status TEXT NOT NULL DEFAULT 'new',
-        notes TEXT,
-        is_qualified BOOLEAN DEFAULT false,
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
-        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL
-      );
-    `);
-
-    await db.execute(sql`
-      CREATE TABLE IF NOT EXISTS schedules (
-        id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-        candidate_id UUID,
-        job_id UUID,
-        recruiter_id UUID,
-        invited_at TEXT NOT NULL,
-        status TEXT NOT NULL DEFAULT 'Invited',
-        interview_type TEXT NOT NULL DEFAULT 'Screening',
-        score INTEGER,
-        duration TEXT,
-        interview_url TEXT NOT NULL,
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
-        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL
-      );
-    `);
-
-    // 2. Self-healing columns: Ensure candidates and users tables have the newer columns
-    try {
-      await db.execute(sql`ALTER TABLE candidates ADD COLUMN IF NOT EXISTS role TEXT;`);
-      await db.execute(sql`ALTER TABLE candidates ADD COLUMN IF NOT EXISTS score TEXT;`);
-      await db.execute(sql`ALTER TABLE candidates ADD COLUMN IF NOT EXISTS skills TEXT;`);
-    } catch (e) {
-      console.log('Columns might already exist in candidates table:', e);
-    }
-
-    await db.execute(sql`ALTER TABLE users ADD COLUMN IF NOT EXISTS plan TEXT DEFAULT 'free';`);
-
     // Get current recruiter's user record to associate with foreign keys
     const recruiterUser = await db.execute(sql`
       SELECT id FROM users WHERE email = ${recruiterEmail} LIMIT 1;

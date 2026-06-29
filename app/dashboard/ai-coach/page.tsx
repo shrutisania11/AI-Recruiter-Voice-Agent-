@@ -2,6 +2,7 @@
 
 import * as React from 'react';
 import { DashboardHeader } from '@/components/dashboard/header';
+import { toast } from 'sonner';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import {
@@ -194,6 +195,35 @@ export default function AICoachPage() {
     setRole('');
     setInterviewScore(5);
     setNotes('');
+  };
+
+  const handleShare = () => {
+    if (!feedback) return;
+    
+    const formattedText = `
+# AI Growth Coach Report for ${candidateName}
+**Position**: ${role}
+**Interview Score**: ${interviewScore}/10 (${scoreLabel})
+
+## Motivational Note
+${feedback.motivationalNote}
+
+## Key Strengths
+${feedback.candidateStrengths.map(s => `- ${s}`).join('\n')}
+
+## Recommended Areas of Improvement
+${feedback.improvementAreas.map(area => `
+### ${area.title} (Score: ${area.score}% - ${area.label})
+*Tip*: ${area.tip}
+`).join('\n')}
+    `.trim();
+
+    try {
+      navigator.clipboard.writeText(formattedText);
+      toast.success(`Copied feedback report for ${candidateName.split(' ')[0]} to clipboard!`);
+    } catch (err) {
+      toast.error("Failed to copy report to clipboard.");
+    }
   };
 
   const scoreLabel =
@@ -585,6 +615,7 @@ export default function AICoachPage() {
                   </div>
                   <Button
                     variant="outline"
+                    onClick={handleShare}
                     className="border-violet-500/30 text-violet-300 hover:text-white hover:bg-violet-600/20 text-sm flex items-center gap-2 cursor-pointer rounded-xl px-4 h-9"
                   >
                     <ArrowRight className="h-3.5 w-3.5" />

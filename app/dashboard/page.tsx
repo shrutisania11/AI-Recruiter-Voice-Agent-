@@ -62,8 +62,38 @@ export default async function DashboardPage() {
 
   log(`DashboardPage loaded for Clerk userId: ${userId}`);
 
+  // Get email and name first
+  email = (authData.sessionClaims as any)?.email || (authData.sessionClaims as any)?.primary_email || '';
+  name = (authData.sessionClaims as any)?.name || '';
+
+  if (!email) {
+    try {
+      const user = await currentUser();
+      if (user) {
+        email = user.emailAddresses[0]?.emailAddress ?? '';
+        name = `${user.firstName ?? ''} ${user.lastName ?? ''}`.trim() || user.username || '';
+      }
+    } catch (err: any) {
+      console.error('Clerk currentUser lookup failed in DashboardPage:', err);
+    }
+  }
+
+  if (!email) {
+    redirect('/sign-in');
+  }
+
+  // 1. Initialize database schemas first (prevents crashing queries on uninitialized schemas)
   try {
-    // 1. Try finding user by clerkId first (takes 10-20ms)
+    log(`Starting initializeDatabase...`);
+    await initializeDatabase(email);
+    log(`initializeDatabase completed successfully.`);
+  } catch (error: any) {
+    log(`Error initializing database: ${error.message}\nStack: ${error.stack}`);
+    console.error('Error initializing database:', error);
+  }
+
+  // 2. Query and sync user records
+  try {
     let existingUser = await db.query.users.findFirst({
       where: eq(schema.users.clerkId, userId),
     });
@@ -73,31 +103,6 @@ export default async function DashboardPage() {
       email = existingUser.email;
       log(`Found existing user by clerkId: ${recruiterId}`);
     } else {
-      // 2. Fallback to session claims email or currentUser() lookup
-      email = (authData.sessionClaims as any)?.email || (authData.sessionClaims as any)?.primary_email;
-      name = (authData.sessionClaims as any)?.name || '';
-
-      if (!email) {
-        try {
-          const user = await currentUser();
-          if (user) {
-            email = user.emailAddresses[0]?.emailAddress ?? '';
-            name = `${user.firstName ?? ''} ${user.lastName ?? ''}`.trim() || user.username || '';
-          }
-        } catch (err: any) {
-          console.error('Clerk currentUser lookup failed in DashboardPage:', err);
-        }
-      }
-
-      if (!email) {
-        redirect('/sign-in');
-      }
-
-      // Initialize database schemas
-      log(`Starting initializeDatabase...`);
-      await initializeDatabase(email);
-      log(`initializeDatabase completed successfully.`);
-
       // Check if user exists by email
       existingUser = await db.query.users.findFirst({
         where: eq(schema.users.email, email),
@@ -123,8 +128,8 @@ export default async function DashboardPage() {
       }
     }
   } catch (error: any) {
-    log(`Error syncing user or initializing database: ${error.message}\nStack: ${error.stack}`);
-    console.error('Error syncing user or initializing database:', error);
+    log(`Error syncing user record: ${error.message}\nStack: ${error.stack}`);
+    console.error('Error syncing user record:', error);
   }
 
   // Fetch actual data
@@ -137,11 +142,11 @@ export default async function DashboardPage() {
 
   if (recruiterId) {
     try {
-      log(`Querying jobs, candidates, and schedules for the whole system...`);
+      log(`Querying jobs, candidates, and schedules for recruiterId: ${recruiterId}...`);
       const [jobs, candidates, schedules] = await Promise.all([
-        db.select().from(schema.jobs),
-        db.select().from(schema.candidates),
-        db.select().from(schema.schedules)
+        db.select().from(schema.jobs).where(eq(schema.jobs.recruiterId, recruiterId)),
+        db.select().from(schema.candidates).where(eq(schema.candidates.recruiterId, recruiterId)),
+        db.select().from(schema.schedules).where(eq(schema.schedules.recruiterId, recruiterId))
       ]);
       log(`Fetched ${jobs.length} jobs, ${candidates.length} candidates, ${schedules.length} schedules.`);
 

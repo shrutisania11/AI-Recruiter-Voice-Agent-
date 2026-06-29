@@ -1,6 +1,7 @@
 'use client';
 
 import * as React from 'react';
+import { toast } from 'sonner';
 import { DashboardHeader } from '@/components/dashboard/header';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -61,6 +62,39 @@ const mapDbCandidate = (dbCand: any): Candidate => ({
   skills: dbCand.skills || 'N/A',
   time: formatTimeAgo(new Date(dbCand.createdAt))
 });
+
+// Helper functions to load external libraries for document parsing dynamically
+const loadPdfJs = (): Promise<any> => {
+  return new Promise((resolve, reject) => {
+    if ((window as any).pdfjsLib) {
+      resolve((window as any).pdfjsLib);
+      return;
+    }
+    const script = document.createElement('script');
+    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js';
+    script.onload = () => {
+      const pdfjs = (window as any).pdfjsLib;
+      pdfjs.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
+      resolve(pdfjs);
+    };
+    script.onerror = reject;
+    document.head.appendChild(script);
+  });
+};
+
+const loadMammoth = (): Promise<any> => {
+  return new Promise((resolve, reject) => {
+    if ((window as any).mammoth) {
+      resolve((window as any).mammoth);
+      return;
+    }
+    const script = document.createElement('script');
+    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js';
+    script.onload = () => resolve((window as any).mammoth);
+    script.onerror = reject;
+    document.head.appendChild(script);
+  });
+};
 
 // Mock parsed candidates list rotation to simulate AI extraction
 const mockParsedCandidates = [
@@ -137,7 +171,7 @@ export default function CandidatesPage() {
   const totalPages = Math.ceil(filteredCandidates.length / pageSize) || 1;
 
   // Handle Resume File Upload (Simulates AI Parsing using file name data & content crawler)
-  const handleResumeUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleResumeUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
 
@@ -208,27 +242,74 @@ export default function CandidatesPage() {
     const scoreVal = Math.floor(Math.random() * (97 - 82 + 1)) + 82;
     const parsedScore = `${scoreVal}%`;
 
-    // Set fallback timeout values
     let emailFoundFromContent = '';
 
-    // Create a FileReader to read text content from the file to extract actual emails
-    const fileReader = new FileReader();
-    fileReader.onload = (event) => {
-      try {
-        const textContent = event.target?.result as string;
-        if (textContent) {
-          const contentEmailMatch = textContent.match(emailRegex);
-          if (contentEmailMatch) {
-            emailFoundFromContent = contentEmailMatch[0];
+    // Create a Promise to wrap PDF/DOCX/Text parsing
+    const extractEmailFromContent = (): Promise<string> => {
+      return new Promise((resolve) => {
+        const fileReader = new FileReader();
+
+        fileReader.onload = async (event) => {
+          try {
+            const arrayBuffer = event.target?.result as ArrayBuffer;
+            if (!arrayBuffer) {
+              resolve('');
+              return;
+            }
+
+            let textContent = '';
+
+            if (file.name.toLowerCase().endsWith('.pdf')) {
+              try {
+                const pdfjs = await loadPdfJs();
+                const pdf = await pdfjs.getDocument({ data: arrayBuffer }).promise;
+                let extracted = '';
+                for (let i = 1; i <= pdf.numPages; i++) {
+                  const page = await pdf.getPage(i);
+                  const pageContent = await page.getTextContent();
+                  const pageText = pageContent.items.map((item: any) => item.str).join(' ');
+                  extracted += pageText + ' ';
+                }
+                textContent = extracted;
+              } catch (pdfErr) {
+                console.error('PDF.js parsing failed, trying text extraction:', pdfErr);
+                // Fallback to text reading
+                const decoder = new TextDecoder('utf-8');
+                textContent = decoder.decode(arrayBuffer);
+              }
+            } else if (file.name.toLowerCase().endsWith('.docx')) {
+              try {
+                const mammoth = await loadMammoth();
+                const result = await mammoth.extractRawText({ arrayBuffer });
+                textContent = result.value || '';
+              } catch (docxErr) {
+                console.error('Mammoth DOCX parsing failed:', docxErr);
+              }
+            } else {
+              // Standard text files
+              const decoder = new TextDecoder('utf-8');
+              textContent = decoder.decode(arrayBuffer);
+            }
+
+            if (textContent) {
+              const contentEmailMatch = textContent.match(emailRegex);
+              if (contentEmailMatch) {
+                resolve(contentEmailMatch[0]);
+                return;
+              }
+            }
+          } catch (err) {
+            console.warn('Error reading resume text:', err);
           }
-        }
-      } catch (err) {
-        console.warn("Could not read file text content for email parsing:", err);
-      }
+          resolve('');
+        };
+
+        fileReader.onerror = () => resolve('');
+        fileReader.readAsArrayBuffer(file);
+      });
     };
-    
-    // Start reading file as text
-    fileReader.readAsText(file, 'UTF-8');
+
+    emailFoundFromContent = await extractEmailFromContent();
 
     // Simulate AI parsing delay of 1.5 seconds
     setTimeout(() => {
@@ -268,9 +349,13 @@ export default function CandidatesPage() {
       const data = await res.json();
       if (data && data.id) {
         setCandidates(prev => [mapDbCandidate(data), ...prev]);
+        toast.success(`Candidate "${candidateName}" saved successfully!`);
+      } else {
+        toast.error(data.error || 'Failed to save candidate to database.');
       }
-    } catch (err) {
+    } catch (err: any) {
       console.error('Error saving candidate to database:', err);
+      toast.error(err.message || 'An error occurred while saving the candidate.');
     }
 
     resetForm();
@@ -283,11 +368,16 @@ export default function CandidatesPage() {
       const res = await fetch(`/api/candidates?id=${id}`, {
         method: 'DELETE'
       });
+      const data = await res.json();
       if (res.ok) {
         setCandidates(prev => prev.filter(c => c.id !== id));
+        toast.success('Candidate deleted successfully.');
+      } else {
+        toast.error(data.error || 'Failed to delete candidate.');
       }
-    } catch (err) {
+    } catch (err: any) {
       console.error('Error deleting candidate from database:', err);
+      toast.error(err.message || 'An error occurred while deleting the candidate.');
     }
   };
 

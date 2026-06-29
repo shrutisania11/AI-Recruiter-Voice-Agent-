@@ -1,12 +1,20 @@
 import { auth, currentUser } from '@clerk/nextjs/server';
 import { db, schema } from '@/db';
 import { eq } from 'drizzle-orm';
+import { initializeDatabase } from '@/db/init';
 
 export async function getRecruiterId() {
   const authData = await auth();
   const { userId } = authData;
 
   if (!userId) return null;
+
+  // Run schema initialization to make sure tables/columns exist
+  try {
+    await initializeDatabase('system-init@vocalhire.ai');
+  } catch (err) {
+    console.error('Error auto-initializing database in getRecruiterId:', err);
+  }
 
   // 1. Try finding user by clerkId (fully local JWT verification + db query)
   try {
