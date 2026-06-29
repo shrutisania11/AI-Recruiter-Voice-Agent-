@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { toast } from 'sonner';
 
-export default function CheckoutMockPage() {
+function CheckoutMockContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const rawPlan = searchParams.get('plan') || 'pro';
@@ -207,5 +207,13 @@ export default function CheckoutMockPage() {
 
       </div>
     </div>
+  );
+}
+
+export default function CheckoutMockPage() {
+  return (
+    <React.Suspense fallback={<div className="min-h-screen bg-black text-zinc-100 flex justify-center items-center">Loading payment simulator...</div>}>
+      <CheckoutMockContent />
+    </React.Suspense>
   );
 }
