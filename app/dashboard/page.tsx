@@ -52,7 +52,12 @@ export default async function DashboardPage() {
   const path = require('path');
   const logFilePath = path.join(process.cwd(), 'db-debug.log');
   const log = (msg: string) => {
-    fs.appendFileSync(logFilePath, `[${new Date().toISOString()}] ${msg}\n`);
+    console.log(`[DASHBOARD] ${msg}`);
+    if (process.env.NODE_ENV !== 'production' && process.env.VERCEL !== '1') {
+      try {
+        fs.appendFileSync(logFilePath, `[${new Date().toISOString()}] ${msg}\n`);
+      } catch (err) {}
+    }
   };
 
   log(`DashboardPage loaded for Clerk userId: ${userId}`);
