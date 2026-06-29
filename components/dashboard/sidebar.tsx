@@ -14,7 +14,6 @@ import {
   Zap,
   AudioLines,
   BrainCircuit,
-  FileText,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
@@ -48,7 +47,6 @@ const sidebarItems = [
   { id: 'schedules', label: 'Schedules / Interview', icon: Calendar, href: '/dashboard/schedules' },
   { id: 'ai-coach', label: 'AI Growth Coach', icon: BrainCircuit, href: '/dashboard/ai-coach', badge: 'AI' },
   { id: 'settings', label: 'Settings', icon: Settings, href: '/dashboard/settings' },
-  { id: 'documentation', label: 'Documentation', icon: FileText, href: '/dashboard/doc' },
 ];
 
 export function Sidebar() {
