@@ -1,0 +1,427 @@
+[2026-06-29T09:54:56.232Z] DashboardPage loaded for Clerk email: shrutisania11@gmail.com
+[2026-06-29T09:54:56.288Z] Query user email result: {"id":"1ad696d0-73a7-4111-b382-9a8faf517b5e","email":"shrutisania11@gmail.com","name":"Shruti Sania","password":null,"role":"recruiter","createdAt":"2026-06-27T17:29:01.717Z","updatedAt":"2026-06-27T17:29:01.717Z"}
+[2026-06-29T09:54:56.289Z] Found existing user with ID: 1ad696d0-73a7-4111-b382-9a8faf517b5e
+[2026-06-29T09:54:56.291Z] Starting initializeDatabase...
+[2026-06-29T09:54:56.544Z] initializeDatabase completed successfully.
+[2026-06-29T09:54:56.545Z] Querying jobs, candidates, and schedules for recruiterId: 1ad696d0-73a7-4111-b382-9a8faf517b5e...
+[2026-06-29T09:54:56.564Z] Fetched 3 jobs.
+[2026-06-29T09:54:56.586Z] Fetched 4 candidates.
+[2026-06-29T09:54:56.612Z] Fetched 4 schedules.
+[2026-06-29T09:54:56.614Z] Computed stats - Active Jobs: 2, Total Candidates: 4, Scheduled: 1, Screening Rate: 50%
+[2026-06-29T09:54:56.620Z] Compiled 5 recent activities.
+[2026-06-29T09:55:07.524Z] DashboardPage loaded for Clerk email: shrutisania11@gmail.com
+[2026-06-29T09:55:18.252Z] Error syncing user or initializing database: Failed query: select "id", "email", "name", "password", "role", "created_at", "updated_at" from "users" "users" where "users"."email" = $1 limit $2
+params: shrutisania11@gmail.com,1
+Stack: Error: Failed query: select "id", "email", "name", "password", "role", "created_at", "updated_at" from "users" "users" where "users"."email" = $1 limit $2
+params: shrutisania11@gmail.com,1
+    at NeonHttpPreparedQuery.queryWithCache (webpack-internal:///(rsc)/./node_modules/drizzle-orm/pg-core/session.js:53:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async NeonHttpPreparedQuery.execute (webpack-internal:///(rsc)/./node_modules/drizzle-orm/neon-http/session.js:57:20)
+    at async DashboardPage (webpack-internal:///(rsc)/./app/dashboard/page.tsx:60:30)
+[2026-06-29T10:08:00.311Z] DashboardPage loaded for Clerk email: shrutisania11@gmail.com
+[2026-06-29T10:08:16.379Z] Error syncing user or initializing database: Failed query: select "id", "email", "name", "password", "role", "created_at", "updated_at" from "users" "users" where "users"."email" = $1 limit $2
+params: shrutisania11@gmail.com,1
+Stack: Error: Failed query: select "id", "email", "name", "password", "role", "created_at", "updated_at" from "users" "users" where "users"."email" = $1 limit $2
+params: shrutisania11@gmail.com,1
+    at NeonHttpPreparedQuery.queryWithCache (webpack-internal:///(rsc)/./node_modules/drizzle-orm/pg-core/session.js:53:15)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at runNextTicks (node:internal/process/task_queues:69:3)
+    at process.processImmediate (node:internal/timers:453:9)
+    at process.callbackTrampoline (node:internal/async_hooks:130:17)
+    at async NeonHttpPreparedQuery.execute (webpack-internal:///(rsc)/./node_modules/drizzle-orm/neon-http/session.js:57:20)
+    at async DashboardPage (webpack-internal:///(rsc)/./app/dashboard/page.tsx:60:30)
+[2026-06-29T10:16:56.307Z] DashboardPage loaded for Clerk email: shrutisania11@gmail.com
+[2026-06-29T10:17:07.460Z] Error syncing user or initializing database: Failed query: select "id", "email", "name", "password", "role", "created_at", "updated_at" from "users" "users" where "users"."email" = $1 limit $2
+params: shrutisania11@gmail.com,1
+Stack: Error: Failed query: select "id", "email", "name", "password", "role", "created_at", "updated_at" from "users" "users" where "users"."email" = $1 limit $2
+params: shrutisania11@gmail.com,1
+    at NeonHttpPreparedQuery.queryWithCache (webpack-internal:///(rsc)/./node_modules/drizzle-orm/pg-core/session.js:53:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async NeonHttpPreparedQuery.execute (webpack-internal:///(rsc)/./node_modules/drizzle-orm/neon-http/session.js:57:20)
+    at async DashboardPage (webpack-internal:///(rsc)/./app/dashboard/page.tsx:60:30)
+[2026-06-29T10:17:53.401Z] DashboardPage loaded for Clerk email: shrutisania11@gmail.com
+[2026-06-29T10:18:04.138Z] Error syncing user or initializing database: Failed query: select "id", "email", "name", "password", "role", "created_at", "updated_at" from "users" "users" where "users"."email" = $1 limit $2
+params: shrutisania11@gmail.com,1
+Stack: Error: Failed query: select "id", "email", "name", "password", "role", "created_at", "updated_at" from "users" "users" where "users"."email" = $1 limit $2
+params: shrutisania11@gmail.com,1
+    at NeonHttpPreparedQuery.queryWithCache (webpack-internal:///(rsc)/./node_modules/drizzle-orm/pg-core/session.js:53:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async NeonHttpPreparedQuery.execute (webpack-internal:///(rsc)/./node_modules/drizzle-orm/neon-http/session.js:57:20)
+    at async DashboardPage (webpack-internal:///(rsc)/./app/dashboard/page.tsx:60:30)
+[2026-06-29T10:23:08.543Z] DashboardPage loaded for Clerk email: shrutisania11@gmail.com
+[2026-06-29T10:23:26.268Z] Query user email result: {"id":"1ad696d0-73a7-4111-b382-9a8faf517b5e","email":"shrutisania11@gmail.com","name":"Shruti Sania","password":null,"role":"recruiter","createdAt":"2026-06-27T17:29:01.717Z","updatedAt":"2026-06-27T17:29:01.717Z"}
+[2026-06-29T10:23:26.277Z] Found existing user with ID: 1ad696d0-73a7-4111-b382-9a8faf517b5e
+[2026-06-29T10:23:26.283Z] Starting initializeDatabase...
+[2026-06-29T10:23:40.047Z] initializeDatabase completed successfully.
+[2026-06-29T10:23:40.057Z] Querying jobs, candidates, and schedules for recruiterId: 1ad696d0-73a7-4111-b382-9a8faf517b5e...
+[2026-06-29T10:23:54.526Z] Fetched 3 jobs.
+[2026-06-29T10:24:10.640Z] Fetched 4 candidates.
+[2026-06-29T10:24:21.658Z] Error loading dashboard metrics from database: Failed query: select "id", "candidate_id", "job_id", "recruiter_id", "invited_at", "status", "interview_type", "score", "duration", "interview_url", "created_at", "updated_at" from "schedules" where "schedules"."recruiter_id" = $1
+params: 1ad696d0-73a7-4111-b382-9a8faf517b5e
+Stack: Error: Failed query: select "id", "candidate_id", "job_id", "recruiter_id", "invited_at", "status", "interview_type", "score", "duration", "interview_url", "created_at", "updated_at" from "schedules" where "schedules"."recruiter_id" = $1
+params: 1ad696d0-73a7-4111-b382-9a8faf517b5e
+    at NeonHttpPreparedQuery.queryWithCache (webpack-internal:///(rsc)/./node_modules/drizzle-orm/pg-core/session.js:53:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async NeonHttpPreparedQuery.execute (webpack-internal:///(rsc)/./node_modules/drizzle-orm/neon-http/session.js:57:20)
+    at async DashboardPage (webpack-internal:///(rsc)/./app/dashboard/page.tsx:97:31)
+[2026-06-29T10:46:26.741Z] DashboardPage loaded for Clerk email: shrutisania11@gmail.com
+[2026-06-29T10:46:37.905Z] Error syncing user or initializing database: Failed query: select "id", "email", "name", "password", "role", "plan", "created_at", "updated_at" from "users" "users" where "users"."email" = $1 limit $2
+params: shrutisania11@gmail.com,1
+Stack: Error: Failed query: select "id", "email", "name", "password", "role", "plan", "created_at", "updated_at" from "users" "users" where "users"."email" = $1 limit $2
+params: shrutisania11@gmail.com,1
+    at NeonHttpPreparedQuery.queryWithCache (webpack-internal:///(rsc)/./node_modules/drizzle-orm/pg-core/session.js:53:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async NeonHttpPreparedQuery.execute (webpack-internal:///(rsc)/./node_modules/drizzle-orm/neon-http/session.js:57:20)
+    at async DashboardPage (webpack-internal:///(rsc)/./app/dashboard/page.tsx:60:30)
+[2026-06-29T10:46:37.965Z] Using fallback metrics.
+[2026-06-29T10:48:39.706Z] DashboardPage loaded for Clerk email: shrutisania11@gmail.com
+[2026-06-29T10:48:54.191Z] Error syncing user or initializing database: Failed query: select "id", "email", "name", "password", "role", "plan", "created_at", "updated_at" from "users" "users" where "users"."email" = $1 limit $2
+params: shrutisania11@gmail.com,1
+Stack: Error: Failed query: select "id", "email", "name", "password", "role", "plan", "created_at", "updated_at" from "users" "users" where "users"."email" = $1 limit $2
+params: shrutisania11@gmail.com,1
+    at NeonHttpPreparedQuery.queryWithCache (webpack-internal:///(rsc)/./node_modules/drizzle-orm/pg-core/session.js:53:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async NeonHttpPreparedQuery.execute (webpack-internal:///(rsc)/./node_modules/drizzle-orm/neon-http/session.js:57:20)
+    at async DashboardPage (webpack-internal:///(rsc)/./app/dashboard/page.tsx:60:30)
+[2026-06-29T10:48:54.277Z] Using fallback metrics.
+[2026-06-29T11:05:40.610Z] DashboardPage loaded for Clerk email: shrutisania11@gmail.com
+[2026-06-29T11:05:40.619Z] Starting initializeDatabase...
+[2026-06-29T11:06:12.062Z] initializeDatabase completed successfully.
+[2026-06-29T11:06:28.028Z] Error syncing user or initializing database: Failed query: select "id", "email", "name", "password", "role", "plan", "created_at", "updated_at" from "users" "users" where "users"."email" = $1 limit $2
+params: shrutisania11@gmail.com,1
+Stack: Error: Failed query: select "id", "email", "name", "password", "role", "plan", "created_at", "updated_at" from "users" "users" where "users"."email" = $1 limit $2
+params: shrutisania11@gmail.com,1
+    at NeonHttpPreparedQuery.queryWithCache (webpack-internal:///(rsc)/./node_modules/drizzle-orm/pg-core/session.js:53:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async NeonHttpPreparedQuery.execute (webpack-internal:///(rsc)/./node_modules/drizzle-orm/neon-http/session.js:57:20)
+    at async DashboardPage (webpack-internal:///(rsc)/./app/dashboard/page.tsx:77:30)
+[2026-06-29T11:06:28.122Z] Using fallback metrics.
+[2026-06-29T11:06:39.931Z] DashboardPage loaded for Clerk email: shrutisania11@gmail.com
+[2026-06-29T11:06:39.933Z] Starting initializeDatabase...
+[2026-06-29T11:06:39.971Z] DashboardPage loaded for Clerk email: shrutisania11@gmail.com
+[2026-06-29T11:06:39.972Z] Starting initializeDatabase...
+[2026-06-29T11:06:40.070Z] [STRIPE_CHECKOUT_API] POST request. userId: user_3FiLkslVDkOoFHgINvOcqgeElLN, email: shrutisania11@gmail.com
+[2026-06-29T11:06:52.823Z] initializeDatabase completed successfully.
+[2026-06-29T11:06:53.027Z] initializeDatabase completed successfully.
+[2026-06-29T11:07:04.944Z] Error syncing user or initializing database: Failed query: select "id", "email", "name", "password", "role", "plan", "created_at", "updated_at" from "users" "users" where "users"."email" = $1 limit $2
+params: shrutisania11@gmail.com,1
+Stack: Error: Failed query: select "id", "email", "name", "password", "role", "plan", "created_at", "updated_at" from "users" "users" where "users"."email" = $1 limit $2
+params: shrutisania11@gmail.com,1
+    at NeonHttpPreparedQuery.queryWithCache (webpack-internal:///(rsc)/./node_modules/drizzle-orm/pg-core/session.js:53:15)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at runNextTicks (node:internal/process/task_queues:69:3)
+    at process.processImmediate (node:internal/timers:453:9)
+    at process.callbackTrampoline (node:internal/async_hooks:130:17)
+    at async NeonHttpPreparedQuery.execute (webpack-internal:///(rsc)/./node_modules/drizzle-orm/neon-http/session.js:57:20)
+    at async DashboardPage (webpack-internal:///(rsc)/./app/dashboard/page.tsx:77:30)
+[2026-06-29T11:07:05.011Z] Using fallback metrics.
+[2026-06-29T11:07:05.041Z] Error syncing user or initializing database: Failed query: select "id", "email", "name", "password", "role", "plan", "created_at", "updated_at" from "users" "users" where "users"."email" = $1 limit $2
+params: shrutisania11@gmail.com,1
+Stack: Error: Failed query: select "id", "email", "name", "password", "role", "plan", "created_at", "updated_at" from "users" "users" where "users"."email" = $1 limit $2
+params: shrutisania11@gmail.com,1
+    at NeonHttpPreparedQuery.queryWithCache (webpack-internal:///(rsc)/./node_modules/drizzle-orm/pg-core/session.js:53:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async NeonHttpPreparedQuery.execute (webpack-internal:///(rsc)/./node_modules/drizzle-orm/neon-http/session.js:57:20)
+    at async DashboardPage (webpack-internal:///(rsc)/./app/dashboard/page.tsx:77:30)
+[2026-06-29T11:07:05.103Z] Using fallback metrics.
+[2026-06-29T11:09:32.019Z] DashboardPage loaded for Clerk email: shrutisania11@gmail.com
+[2026-06-29T11:09:32.023Z] Starting initializeDatabase...
+[2026-06-29T11:09:42.772Z] initializeDatabase completed successfully.
+[2026-06-29T11:09:44.563Z] Error syncing user or initializing database: Failed query: select "id", "email", "name", "password", "role", "plan", "created_at", "updated_at" from "users" "users" where "users"."email" = $1 limit $2
+params: shrutisania11@gmail.com,1
+Stack: Error: Failed query: select "id", "email", "name", "password", "role", "plan", "created_at", "updated_at" from "users" "users" where "users"."email" = $1 limit $2
+params: shrutisania11@gmail.com,1
+    at NeonHttpPreparedQuery.queryWithCache (webpack-internal:///(rsc)/./node_modules/drizzle-orm/pg-core/session.js:53:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async NeonHttpPreparedQuery.execute (webpack-internal:///(rsc)/./node_modules/drizzle-orm/neon-http/session.js:57:20)
+    at async DashboardPage (webpack-internal:///(rsc)/./app/dashboard/page.tsx:77:30)
+[2026-06-29T11:09:44.602Z] Using fallback metrics.
+[2026-06-29T11:10:55.442Z] DashboardPage loaded for Clerk email: shrutisania11@gmail.com
+[2026-06-29T11:10:55.450Z] Starting initializeDatabase...
+[2026-06-29T11:11:06.309Z] initializeDatabase completed successfully.
+[2026-06-29T11:11:08.909Z] Error syncing user or initializing database: Failed query: select "id", "email", "name", "password", "role", "plan", "created_at", "updated_at" from "users" "users" where "users"."email" = $1 limit $2
+params: shrutisania11@gmail.com,1
+Stack: Error: Failed query: select "id", "email", "name", "password", "role", "plan", "created_at", "updated_at" from "users" "users" where "users"."email" = $1 limit $2
+params: shrutisania11@gmail.com,1
+    at NeonHttpPreparedQuery.queryWithCache (webpack-internal:///(rsc)/./node_modules/drizzle-orm/pg-core/session.js:53:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async NeonHttpPreparedQuery.execute (webpack-internal:///(rsc)/./node_modules/drizzle-orm/neon-http/session.js:57:20)
+    at async DashboardPage (webpack-internal:///(rsc)/./app/dashboard/page.tsx:77:30)
+[2026-06-29T11:11:08.988Z] Using fallback metrics.
+[2026-06-29T11:11:43.632Z] [STRIPE_CHECKOUT_API] POST request. userId: null, email: undefined
+[2026-06-29T11:11:43.643Z] [STRIPE_CHECKOUT_API] Authentication failed: userId or email is null
+[2026-06-29T11:11:51.132Z] DashboardPage loaded for Clerk email: shrutisania11@gmail.com
+[2026-06-29T11:11:51.144Z] Starting initializeDatabase...
+[2026-06-29T11:11:54.538Z] [STRIPE_CHECKOUT_API] POST request. userId: null, email: undefined
+[2026-06-29T11:11:54.549Z] [STRIPE_CHECKOUT_API] Authentication failed: userId or email is null
+[2026-06-29T11:12:03.367Z] initializeDatabase completed successfully.
+[2026-06-29T11:12:14.126Z] Error syncing user or initializing database: Failed query: select "id", "email", "name", "password", "role", "plan", "created_at", "updated_at" from "users" "users" where "users"."email" = $1 limit $2
+params: shrutisania11@gmail.com,1
+Stack: Error: Failed query: select "id", "email", "name", "password", "role", "plan", "created_at", "updated_at" from "users" "users" where "users"."email" = $1 limit $2
+params: shrutisania11@gmail.com,1
+    at NeonHttpPreparedQuery.queryWithCache (webpack-internal:///(rsc)/./node_modules/drizzle-orm/pg-core/session.js:53:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async NeonHttpPreparedQuery.execute (webpack-internal:///(rsc)/./node_modules/drizzle-orm/neon-http/session.js:57:20)
+    at async DashboardPage (webpack-internal:///(rsc)/./app/dashboard/page.tsx:77:30)
+[2026-06-29T11:12:14.269Z] Using fallback metrics.
+[2026-06-29T11:17:50.608Z] DashboardPage loaded for Clerk email: shrutisania11@gmail.com
+[2026-06-29T11:17:50.613Z] Starting initializeDatabase...
+[2026-06-29T11:17:50.617Z] initializeDatabase completed successfully.
+[2026-06-29T11:17:56.600Z] DashboardPage loaded for Clerk email: shrutisania11@gmail.com
+[2026-06-29T11:17:56.601Z] Starting initializeDatabase...
+[2026-06-29T11:17:56.605Z] initializeDatabase completed successfully.
+[2026-06-29T11:18:03.270Z] Error syncing user or initializing database: Failed query: select "id", "email", "name", "password", "role", "plan", "created_at", "updated_at" from "users" "users" where "users"."email" = $1 limit $2
+params: shrutisania11@gmail.com,1
+Stack: Error: Failed query: select "id", "email", "name", "password", "role", "plan", "created_at", "updated_at" from "users" "users" where "users"."email" = $1 limit $2
+params: shrutisania11@gmail.com,1
+    at NeonHttpPreparedQuery.queryWithCache (webpack-internal:///(rsc)/./node_modules/drizzle-orm/pg-core/session.js:53:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async NeonHttpPreparedQuery.execute (webpack-internal:///(rsc)/./node_modules/drizzle-orm/neon-http/session.js:57:20)
+    at async DashboardPage (webpack-internal:///(rsc)/./app/dashboard/page.tsx:77:30)
+[2026-06-29T11:18:03.427Z] Using fallback metrics.
+[2026-06-29T11:18:03.601Z] Error syncing user or initializing database: Failed query: select "id", "email", "name", "password", "role", "plan", "created_at", "updated_at" from "users" "users" where "users"."email" = $1 limit $2
+params: shrutisania11@gmail.com,1
+Stack: Error: Failed query: select "id", "email", "name", "password", "role", "plan", "created_at", "updated_at" from "users" "users" where "users"."email" = $1 limit $2
+params: shrutisania11@gmail.com,1
+    at NeonHttpPreparedQuery.queryWithCache (webpack-internal:///(rsc)/./node_modules/drizzle-orm/pg-core/session.js:53:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async NeonHttpPreparedQuery.execute (webpack-internal:///(rsc)/./node_modules/drizzle-orm/neon-http/session.js:57:20)
+    at async DashboardPage (webpack-internal:///(rsc)/./app/dashboard/page.tsx:77:30)
+[2026-06-29T11:18:03.638Z] Using fallback metrics.
+[2026-06-29T11:19:58.987Z] DashboardPage loaded for Clerk email: shrutisania11@gmail.com
+[2026-06-29T11:19:59.004Z] Starting initializeDatabase...
+[2026-06-29T11:19:59.008Z] initializeDatabase completed successfully.
+[2026-06-29T11:19:59.013Z] Failed to fetch columns: sql is not defined
+[2026-06-29T11:20:04.282Z] DashboardPage loaded for Clerk email: shrutisania11@gmail.com
+[2026-06-29T11:20:04.283Z] Starting initializeDatabase...
+[2026-06-29T11:20:04.288Z] initializeDatabase completed successfully.
+[2026-06-29T11:20:10.560Z] Failed to fetch columns: Failed query: 
+        SELECT column_name, data_type 
+        FROM information_schema.columns 
+        WHERE table_name = 'users';
+      
+params: 
+[2026-06-29T11:20:10.583Z] Error syncing user or initializing database: Failed query: select "id", "email", "name", "password", "role", "plan", "created_at", "updated_at" from "users" "users" where "users"."email" = $1 limit $2
+params: shrutisania11@gmail.com,1
+Stack: Error: Failed query: select "id", "email", "name", "password", "role", "plan", "created_at", "updated_at" from "users" "users" where "users"."email" = $1 limit $2
+params: shrutisania11@gmail.com,1
+    at NeonHttpPreparedQuery.queryWithCache (webpack-internal:///(rsc)/./node_modules/drizzle-orm/pg-core/session.js:53:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async NeonHttpPreparedQuery.execute (webpack-internal:///(rsc)/./node_modules/drizzle-orm/neon-http/session.js:57:20)
+    at async DashboardPage (webpack-internal:///(rsc)/./app/dashboard/page.tsx:87:30)
+[2026-06-29T11:20:10.824Z] Using fallback metrics.
+[2026-06-29T11:20:21.022Z] Error syncing user or initializing database: Failed query: select "id", "email", "name", "password", "role", "plan", "created_at", "updated_at" from "users" "users" where "users"."email" = $1 limit $2
+params: shrutisania11@gmail.com,1
+Stack: Error: Failed query: select "id", "email", "name", "password", "role", "plan", "created_at", "updated_at" from "users" "users" where "users"."email" = $1 limit $2
+params: shrutisania11@gmail.com,1
+    at NeonHttpPreparedQuery.queryWithCache (webpack-internal:///(rsc)/./node_modules/drizzle-orm/pg-core/session.js:53:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async NeonHttpPreparedQuery.execute (webpack-internal:///(rsc)/./node_modules/drizzle-orm/neon-http/session.js:57:20)
+    at async DashboardPage (webpack-internal:///(rsc)/./app/dashboard/page.tsx:88:30)
+[2026-06-29T11:20:21.059Z] Using fallback metrics.
+[2026-06-29T11:23:02.690Z] [STRIPE_CHECKOUT_API] POST request. userId: null, email: undefined
+[2026-06-29T11:23:02.722Z] [STRIPE_CHECKOUT_API] Authentication failed: userId or email is null
+[2026-06-29T11:23:20.303Z] DashboardPage loaded for Clerk email: shrutisania11@gmail.com
+[2026-06-29T11:23:20.352Z] Starting initializeDatabase...
+[2026-06-29T11:23:20.433Z] initializeDatabase completed successfully.
+[2026-06-29T11:23:29.323Z] DashboardPage loaded for Clerk email: shrutisania11@gmail.com
+[2026-06-29T11:23:29.374Z] Starting initializeDatabase...
+[2026-06-29T11:23:29.392Z] initializeDatabase completed successfully.
+[2026-06-29T11:23:38.853Z] USERS COLUMNS IN DB: [{"column_name":"id","data_type":"uuid"},{"column_name":"created_at","data_type":"timestamp without time zone"},{"column_name":"updated_at","data_type":"timestamp without time zone"},{"column_name":"role","data_type":"text"},{"column_name":"password","data_type":"text"},{"column_name":"email","data_type":"text"},{"column_name":"name","data_type":"text"}]
+[2026-06-29T11:23:39.326Z] USERS COLUMNS IN DB: [{"column_name":"id","data_type":"uuid"},{"column_name":"created_at","data_type":"timestamp without time zone"},{"column_name":"updated_at","data_type":"timestamp without time zone"},{"column_name":"role","data_type":"text"},{"column_name":"password","data_type":"text"},{"column_name":"email","data_type":"text"},{"column_name":"name","data_type":"text"}]
+[2026-06-29T11:24:59.461Z] Error syncing user or initializing database: Failed query: select "id", "email", "name", "password", "role", "plan", "created_at", "updated_at" from "users" "users" where "users"."email" = $1 limit $2
+params: shrutisania11@gmail.com,1
+Stack: Error: Failed query: select "id", "email", "name", "password", "role", "plan", "created_at", "updated_at" from "users" "users" where "users"."email" = $1 limit $2
+params: shrutisania11@gmail.com,1
+    at NeonHttpPreparedQuery.queryWithCache (webpack-internal:///(rsc)/./node_modules/drizzle-orm/pg-core/session.js:53:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async NeonHttpPreparedQuery.execute (webpack-internal:///(rsc)/./node_modules/drizzle-orm/neon-http/session.js:57:20)
+    at async DashboardPage (webpack-internal:///(rsc)/./app/dashboard/page.tsx:88:30)
+[2026-06-29T11:25:00.668Z] Using fallback metrics.
+[2026-06-29T11:25:00.784Z] Error syncing user or initializing database: Failed query: select "id", "email", "name", "password", "role", "plan", "created_at", "updated_at" from "users" "users" where "users"."email" = $1 limit $2
+params: shrutisania11@gmail.com,1
+Stack: Error: Failed query: select "id", "email", "name", "password", "role", "plan", "created_at", "updated_at" from "users" "users" where "users"."email" = $1 limit $2
+params: shrutisania11@gmail.com,1
+    at NeonHttpPreparedQuery.queryWithCache (webpack-internal:///(rsc)/./node_modules/drizzle-orm/pg-core/session.js:53:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async NeonHttpPreparedQuery.execute (webpack-internal:///(rsc)/./node_modules/drizzle-orm/neon-http/session.js:57:20)
+    at async DashboardPage (webpack-internal:///(rsc)/./app/dashboard/page.tsx:88:30)
+[2026-06-29T11:25:01.448Z] Using fallback metrics.
+[2026-06-29T11:27:27.386Z] DashboardPage loaded for Clerk email: shrutisania11@gmail.com
+[2026-06-29T11:27:27.392Z] Starting initializeDatabase...
+[2026-06-29T11:27:27.401Z] initializeDatabase completed successfully.
+[2026-06-29T11:27:37.999Z] Failed to fetch columns: Failed query: 
+        SELECT column_name, data_type 
+        FROM information_schema.columns 
+        WHERE table_name = 'users';
+      
+params: 
+[2026-06-29T11:27:41.456Z] Error syncing user or initializing database: Failed query: select "id", "email", "name", "password", "role", "plan", "created_at", "updated_at" from "users" "users" where "users"."email" = $1 limit $2
+params: shrutisania11@gmail.com,1
+Stack: Error: Failed query: select "id", "email", "name", "password", "role", "plan", "created_at", "updated_at" from "users" "users" where "users"."email" = $1 limit $2
+params: shrutisania11@gmail.com,1
+    at NeonHttpPreparedQuery.queryWithCache (webpack-internal:///(rsc)/./node_modules/drizzle-orm/pg-core/session.js:53:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async NeonHttpPreparedQuery.execute (webpack-internal:///(rsc)/./node_modules/drizzle-orm/neon-http/session.js:57:20)
+    at async DashboardPage (webpack-internal:///(rsc)/./app/dashboard/page.tsx:88:30)
+[2026-06-29T11:27:41.606Z] Using fallback metrics.
+[2026-06-29T11:28:10.625Z] DashboardPage loaded for Clerk email: shrutisania11@gmail.com
+[2026-06-29T11:28:10.627Z] Starting initializeDatabase...
+[2026-06-29T11:28:21.330Z] initializeDatabase completed successfully.
+[2026-06-29T11:28:31.905Z] Failed to fetch columns: Failed query: 
+        SELECT column_name, data_type 
+        FROM information_schema.columns 
+        WHERE table_name = 'users';
+      
+params: 
+[2026-06-29T11:28:45.273Z] Error syncing user or initializing database: Failed query: select "id", "email", "name", "password", "role", "plan", "created_at", "updated_at" from "users" "users" where "users"."email" = $1 limit $2
+params: shrutisania11@gmail.com,1
+Stack: Error: Failed query: select "id", "email", "name", "password", "role", "plan", "created_at", "updated_at" from "users" "users" where "users"."email" = $1 limit $2
+params: shrutisania11@gmail.com,1
+    at NeonHttpPreparedQuery.queryWithCache (webpack-internal:///(rsc)/./node_modules/drizzle-orm/pg-core/session.js:53:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async NeonHttpPreparedQuery.execute (webpack-internal:///(rsc)/./node_modules/drizzle-orm/neon-http/session.js:57:20)
+    at async DashboardPage (webpack-internal:///(rsc)/./app/dashboard/page.tsx:88:30)
+[2026-06-29T11:28:46.112Z] Using fallback metrics.
+[2026-06-29T11:30:08.131Z] DashboardPage loaded for Clerk email: shrutisania11@gmail.com
+[2026-06-29T11:30:08.134Z] Starting initializeDatabase...
+[2026-06-29T11:30:19.762Z] initializeDatabase completed successfully.
+[2026-06-29T11:30:30.328Z] Failed to fetch columns: Failed query: 
+        SELECT column_name, data_type 
+        FROM information_schema.columns 
+        WHERE table_name = 'users';
+      
+params: 
+[2026-06-29T11:30:40.881Z] Error syncing user or initializing database: Failed query: select "id", "email", "name", "password", "role", "plan", "created_at", "updated_at" from "users" "users" where "users"."email" = $1 limit $2
+params: shrutisania11@gmail.com,1
+Stack: Error: Failed query: select "id", "email", "name", "password", "role", "plan", "created_at", "updated_at" from "users" "users" where "users"."email" = $1 limit $2
+params: shrutisania11@gmail.com,1
+    at NeonHttpPreparedQuery.queryWithCache (webpack-internal:///(rsc)/./node_modules/drizzle-orm/pg-core/session.js:53:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async NeonHttpPreparedQuery.execute (webpack-internal:///(rsc)/./node_modules/drizzle-orm/neon-http/session.js:57:20)
+    at async DashboardPage (webpack-internal:///(rsc)/./app/dashboard/page.tsx:88:30)
+[2026-06-29T11:30:40.973Z] Using fallback metrics.
+[2026-06-29T11:31:32.177Z] [STRIPE_CHECKOUT_API] POST request. userId: user_3FiLkslVDkOoFHgINvOcqgeElLN, email: shrutisania11@gmail.com
+[2026-06-29T11:31:39.328Z] DashboardPage loaded for Clerk email: shrutisania11@gmail.com
+[2026-06-29T11:31:39.333Z] Starting initializeDatabase...
+[2026-06-29T11:31:45.482Z] initializeDatabase completed successfully.
+[2026-06-29T11:31:55.868Z] Failed to fetch columns: Failed query: 
+        SELECT column_name, data_type 
+        FROM information_schema.columns 
+        WHERE table_name = 'users';
+      
+params: 
+[2026-06-29T11:32:00.489Z] Query user email result: {"id":"1ad696d0-73a7-4111-b382-9a8faf517b5e","email":"shrutisania11@gmail.com","name":"Shruti Sania","password":null,"role":"recruiter","plan":"free","createdAt":"2026-06-27T17:29:01.717Z","updatedAt":"2026-06-27T17:29:01.717Z"}
+[2026-06-29T11:32:00.491Z] Found existing user with ID: 1ad696d0-73a7-4111-b382-9a8faf517b5e
+[2026-06-29T11:32:00.493Z] Querying jobs, candidates, and schedules for the whole system...
+[2026-06-29T11:32:11.110Z] Error loading dashboard metrics from database: Failed query: select "id", "candidate_id", "job_id", "recruiter_id", "invited_at", "status", "interview_type", "score", "duration", "interview_url", "created_at", "updated_at" from "schedules"
+params: 
+Stack: Error: Failed query: select "id", "candidate_id", "job_id", "recruiter_id", "invited_at", "status", "interview_type", "score", "duration", "interview_url", "created_at", "updated_at" from "schedules"
+params: 
+    at NeonHttpPreparedQuery.queryWithCache (webpack-internal:///(rsc)/./node_modules/drizzle-orm/pg-core/session.js:53:15)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at runNextTicks (node:internal/process/task_queues:69:3)
+    at process.processImmediate (node:internal/timers:453:9)
+    at process.callbackTrampoline (node:internal/async_hooks:130:17)
+    at async NeonHttpPreparedQuery.execute (webpack-internal:///(rsc)/./node_modules/drizzle-orm/neon-http/session.js:57:20)
+    at async Promise.all (index 2)
+    at async DashboardPage (webpack-internal:///(rsc)/./app/dashboard/page.tsx:119:51)
+[2026-06-29T11:32:11.635Z] Using fallback metrics.
+[2026-06-29T11:33:46.128Z] DashboardPage loaded for Clerk email: shrutisania11@gmail.com
+[2026-06-29T11:33:46.129Z] Starting initializeDatabase...
+[2026-06-29T11:33:57.743Z] initializeDatabase completed successfully.
+[2026-06-29T11:34:08.439Z] Failed to fetch columns: Failed query: 
+        SELECT column_name, data_type 
+        FROM information_schema.columns 
+        WHERE table_name = 'users';
+      
+params: 
+[2026-06-29T11:34:19.125Z] Error syncing user or initializing database: Failed query: select "id", "email", "name", "password", "role", "plan", "created_at", "updated_at" from "users" "users" where "users"."email" = $1 limit $2
+params: shrutisania11@gmail.com,1
+Stack: Error: Failed query: select "id", "email", "name", "password", "role", "plan", "created_at", "updated_at" from "users" "users" where "users"."email" = $1 limit $2
+params: shrutisania11@gmail.com,1
+    at NeonHttpPreparedQuery.queryWithCache (webpack-internal:///(rsc)/./node_modules/drizzle-orm/pg-core/session.js:53:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async NeonHttpPreparedQuery.execute (webpack-internal:///(rsc)/./node_modules/drizzle-orm/neon-http/session.js:57:20)
+    at async DashboardPage (webpack-internal:///(rsc)/./app/dashboard/page.tsx:88:30)
+[2026-06-29T11:34:19.142Z] Using fallback metrics.
+[2026-06-29T11:36:05.984Z] DashboardPage loaded for Clerk email: shrutisania11@gmail.com
+[2026-06-29T11:36:05.995Z] Starting initializeDatabase...
+[2026-06-29T11:36:06.071Z] initializeDatabase completed successfully.
+[2026-06-29T11:36:17.159Z] Failed to fetch columns: Failed query: 
+          SELECT column_name, data_type 
+          FROM information_schema.columns 
+          WHERE table_name = $1;
+        
+params: users
+[2026-06-29T11:36:17.247Z] Query user email result: {"id":"1ad696d0-73a7-4111-b382-9a8faf517b5e","email":"shrutisania11@gmail.com","name":"Shruti Sania","password":null,"role":"recruiter","plan":"free","createdAt":"2026-06-27T17:29:01.717Z","updatedAt":"2026-06-27T17:29:01.717Z"}
+[2026-06-29T11:36:17.251Z] Found existing user with ID: 1ad696d0-73a7-4111-b382-9a8faf517b5e
+[2026-06-29T11:36:17.255Z] Querying jobs, candidates, and schedules for the whole system...
+[2026-06-29T11:36:28.098Z] Error loading dashboard metrics from database: Failed query: select "id", "candidate_id", "job_id", "recruiter_id", "invited_at", "status", "interview_type", "score", "duration", "interview_url", "created_at", "updated_at" from "schedules"
+params: 
+Stack: Error: Failed query: select "id", "candidate_id", "job_id", "recruiter_id", "invited_at", "status", "interview_type", "score", "duration", "interview_url", "created_at", "updated_at" from "schedules"
+params: 
+    at NeonHttpPreparedQuery.queryWithCache (webpack-internal:///(rsc)/./node_modules/drizzle-orm/pg-core/session.js:53:15)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at runNextTicks (node:internal/process/task_queues:69:3)
+    at process.processImmediate (node:internal/timers:453:9)
+    at process.callbackTrampoline (node:internal/async_hooks:130:17)
+    at async NeonHttpPreparedQuery.execute (webpack-internal:///(rsc)/./node_modules/drizzle-orm/neon-http/session.js:57:20)
+    at async Promise.all (index 2)
+    at async DashboardPage (webpack-internal:///(rsc)/./app/dashboard/page.tsx:126:51)
+[2026-06-29T11:36:28.407Z] Using fallback metrics.
+[2026-06-29T11:39:53.653Z] DashboardPage loaded for Clerk email: shrutisania11@gmail.com
+[2026-06-29T11:39:53.657Z] Starting initializeDatabase...
+[2026-06-29T11:40:18.458Z] initializeDatabase completed successfully.
+[2026-06-29T11:40:22.375Z] COLUMNS FOR users: [{"column_name":"created_at","data_type":"timestamp without time zone"},{"column_name":"updated_at","data_type":"timestamp without time zone"},{"column_name":"id","data_type":"uuid"},{"column_name":"password","data_type":"text"},{"column_name":"role","data_type":"text"},{"column_name":"plan","data_type":"text"},{"column_name":"email","data_type":"text"},{"column_name":"name","data_type":"text"}]
+[2026-06-29T11:40:32.856Z] Failed to fetch columns: Failed query: 
+          SELECT column_name, data_type 
+          FROM information_schema.columns 
+          WHERE table_name = $1;
+        
+params: jobs
+[2026-06-29T11:40:38.964Z] Query user email result: {"id":"1ad696d0-73a7-4111-b382-9a8faf517b5e","email":"shrutisania11@gmail.com","name":"Shruti Sania","password":null,"role":"recruiter","plan":"free","createdAt":"2026-06-27T17:29:01.717Z","updatedAt":"2026-06-27T17:29:01.717Z"}
+[2026-06-29T11:40:38.965Z] Found existing user with ID: 1ad696d0-73a7-4111-b382-9a8faf517b5e
+[2026-06-29T11:40:38.967Z] Querying jobs, candidates, and schedules for the whole system...
+[2026-06-29T11:41:04.464Z] Fetched 3 jobs, 4 candidates, 4 schedules.
+[2026-06-29T11:41:04.482Z] Computed stats - Active Jobs: 2, Total Candidates: 4, Scheduled: 1, Screening Rate: 50%
+[2026-06-29T11:41:04.510Z] Compiled 5 recent activities.
+[2026-06-29T11:41:36.389Z] DashboardPage loaded for Clerk email: shrutisania11@gmail.com
+[2026-06-29T11:41:36.394Z] Starting initializeDatabase...
+[2026-06-29T11:41:37.396Z] initializeDatabase completed successfully.
+[2026-06-29T11:41:37.466Z] COLUMNS FOR users: [{"column_name":"created_at","data_type":"timestamp without time zone"},{"column_name":"updated_at","data_type":"timestamp without time zone"},{"column_name":"id","data_type":"uuid"},{"column_name":"password","data_type":"text"},{"column_name":"role","data_type":"text"},{"column_name":"plan","data_type":"text"},{"column_name":"email","data_type":"text"},{"column_name":"name","data_type":"text"}]
+[2026-06-29T11:41:47.655Z] Failed to fetch columns: Failed query: 
+          SELECT column_name, data_type 
+          FROM information_schema.columns 
+          WHERE table_name = $1;
+        
+params: jobs
+[2026-06-29T11:41:47.684Z] Query user email result: {"id":"1ad696d0-73a7-4111-b382-9a8faf517b5e","email":"shrutisania11@gmail.com","name":"Shruti Sania","password":null,"role":"recruiter","plan":"free","createdAt":"2026-06-27T17:29:01.717Z","updatedAt":"2026-06-27T17:29:01.717Z"}
+[2026-06-29T11:41:47.686Z] Found existing user with ID: 1ad696d0-73a7-4111-b382-9a8faf517b5e
+[2026-06-29T11:41:47.687Z] Querying jobs, candidates, and schedules for the whole system...
+[2026-06-29T11:41:47.737Z] Fetched 3 jobs, 4 candidates, 4 schedules.
+[2026-06-29T11:41:47.739Z] Computed stats - Active Jobs: 2, Total Candidates: 4, Scheduled: 1, Screening Rate: 50%
+[2026-06-29T11:41:47.743Z] Compiled 5 recent activities.
+[2026-06-29T11:46:27.715Z] DashboardPage loaded for Clerk email: shrutisania11@gmail.com
+[2026-06-29T11:46:27.738Z] Starting initializeDatabase...
+[2026-06-29T11:46:30.683Z] initializeDatabase completed successfully.
+[2026-06-29T11:46:30.761Z] COLUMNS FOR users: [{"column_name":"created_at","data_type":"timestamp without time zone"},{"column_name":"updated_at","data_type":"timestamp without time zone"},{"column_name":"id","data_type":"uuid"},{"column_name":"password","data_type":"text"},{"column_name":"role","data_type":"text"},{"column_name":"plan","data_type":"text"},{"column_name":"email","data_type":"text"},{"column_name":"name","data_type":"text"}]
+[2026-06-29T11:47:04.807Z] COLUMNS FOR jobs: [{"column_name":"id","data_type":"uuid"},{"column_name":"recruiter_id","data_type":"uuid"},{"column_name":"created_at","data_type":"timestamp without time zone"},{"column_name":"updated_at","data_type":"timestamp without time zone"},{"column_name":"skills","data_type":"text"},{"column_name":"location","data_type":"text"},{"column_name":"experience","data_type":"text"},{"column_name":"salary","data_type":"text"},{"column_name":"status","data_type":"text"},{"column_name":"title","data_type":"text"},{"column_name":"description","data_type":"text"}]
+[2026-06-29T11:47:20.011Z] COLUMNS FOR candidates: [{"column_name":"id","data_type":"uuid"},{"column_name":"recruiter_id","data_type":"uuid"},{"column_name":"is_qualified","data_type":"boolean"},{"column_name":"created_at","data_type":"timestamp without time zone"},{"column_name":"updated_at","data_type":"timestamp without time zone"},{"column_name":"role","data_type":"text"},{"column_name":"score","data_type":"text"},{"column_name":"skills","data_type":"text"},{"column_name":"status","data_type":"text"},{"column_name":"notes","data_type":"text"},{"column_name":"full_name","data_type":"text"},{"column_name":"email","data_type":"text"},{"column_name":"phone","data_type":"text"}]
+[2026-06-29T11:47:21.034Z] COLUMNS FOR schedules: [{"column_name":"id","data_type":"uuid"},{"column_name":"candidate_id","data_type":"uuid"},{"column_name":"job_id","data_type":"uuid"},{"column_name":"recruiter_id","data_type":"uuid"},{"column_name":"score","data_type":"integer"},{"column_name":"created_at","data_type":"timestamp without time zone"},{"column_name":"updated_at","data_type":"timestamp without time zone"},{"column_name":"interview_url","data_type":"text"},{"column_name":"duration","data_type":"text"},{"column_name":"invited_at","data_type":"text"},{"column_name":"status","data_type":"text"},{"column_name":"interview_type","data_type":"text"}]
+[2026-06-29T11:47:21.158Z] Query user email result: {"id":"1ad696d0-73a7-4111-b382-9a8faf517b5e","email":"shrutisania11@gmail.com","name":"Shruti Sania","password":null,"role":"recruiter","plan":"free","createdAt":"2026-06-27T17:29:01.717Z","updatedAt":"2026-06-27T17:29:01.717Z"}
+[2026-06-29T11:47:21.161Z] Found existing user with ID: 1ad696d0-73a7-4111-b382-9a8faf517b5e
+[2026-06-29T11:47:21.164Z] Querying jobs, candidates, and schedules for the whole system...
+[2026-06-29T11:47:21.417Z] Fetched 3 jobs, 4 candidates, 4 schedules.
+[2026-06-29T11:47:21.422Z] Computed stats - Active Jobs: 2, Total Candidates: 4, Scheduled: 1, Screening Rate: 50%
+[2026-06-29T11:47:21.429Z] Compiled 5 recent activities.
+[2026-06-29T16:10:02.986Z] DashboardPage loaded for Clerk userId: user_3FiLkslVDkOoFHgINvOcqgeElLN
+[2026-06-29T16:10:05.134Z] Error syncing user or initializing database: Failed query: select "id", "clerk_id", "email", "name", "password", "role", "plan", "created_at", "updated_at" from "users" "users" where "users"."clerk_id" = $1 limit $2
+params: user_3FiLkslVDkOoFHgINvOcqgeElLN,1
+Stack: Error: Failed query: select "id", "clerk_id", "email", "name", "password", "role", "plan", "created_at", "updated_at" from "users" "users" where "users"."clerk_id" = $1 limit $2
+params: user_3FiLkslVDkOoFHgINvOcqgeElLN,1
+    at NeonHttpPreparedQuery.queryWithCache (webpack-internal:///(rsc)/./node_modules/drizzle-orm/pg-core/session.js:53:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async NeonHttpPreparedQuery.execute (webpack-internal:///(rsc)/./node_modules/drizzle-orm/neon-http/session.js:57:20)
+    at async DashboardPage (webpack-internal:///(rsc)/./app/dashboard/page.tsx:62:28)
+[2026-06-29T16:10:05.375Z] Using fallback metrics.
